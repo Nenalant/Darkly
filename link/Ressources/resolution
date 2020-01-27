@@ -1,0 +1,9 @@
+FAILLE REDIRECTION
+
+Dans l'inspection de la classe de l'icone instagram, sur la page d'acceuil,
+il est possible de changer le lien de redirection,
+et ainsi rediriger l'utilisateur vers une autre page ou site ce celle ou celui prevu a l'origine.
+
+SOLUTION
+
+Si les redirections sont générées par le site lui-meme, il faut limiter les URL dans une whitelist.
