@@ -1,0 +1,8 @@
+FAILLE XSS
+
+Dans la page survey, on peut inspecter l'element grade et modifier la valeur envoyee cote server,
+et ainsi recevoir les donnees qui avaient ete restreintes, mais pas innacesibles, du cote client du site
+
+SOLUTION
+
+On peut tout simplement definir dans un tableau cote serveur les donnees dont on autorise l'envoie cote client.
