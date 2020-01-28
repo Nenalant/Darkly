@@ -1,0 +1,14 @@
+FAILLE INJECTION SQL
+
+Dans la page Membres, dans le champs de recherche d'id, on envoie une requette SQL pour connaitre le nom des tableaux et colonnes,
+al'aide de noms generique de
+
+"1 AND 1=2 UNION SELECT column_name, table_name FROM information_schema.columns"
+
+On trouve alors la table users, et apres avoir rechercher dans les 8 diferentes colonnes,
+dans la colonne countersign, on trouve "5ff9d0165b4f92b14994e5c685cdce28" on Decrypt le md5 en ligne,
+on trouve "FortyTwo", encrypte en minuscule qui donne le flag.
+
+"1 AND 1=2 UNION SELECT Commentaire, countersign FROM users WHERE user_id = 5"
+
+SOLUTION
