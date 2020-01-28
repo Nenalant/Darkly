@@ -1,14 +1,22 @@
 FAILLE INJECTION SQL
 
 Dans la page Membres, dans le champs de recherche d'id, on envoie une requette SQL pour connaitre le nom des tableaux et colonnes,
-al'aide de noms generique de
+a l'aide de noms generique de tableaux et colonnes de MySQL
 
 "1 AND 1=2 UNION SELECT column_name, table_name FROM information_schema.columns"
 
-On trouve alors la table users, et apres avoir rechercher dans les 8 diferentes colonnes,
-dans la colonne countersign, on trouve "5ff9d0165b4f92b14994e5c685cdce28" on Decrypt le md5 en ligne,
-on trouve "FortyTwo", encrypte en minuscule qui donne le flag.
+On trouve alors la table users contenant les nom de colonne (user_id, fist_name et last_name) qui apparaissent lors d'un simple recherche dans la page members.
+Dans une simple recherche sur la page Members en esseyant l'id 5, on trouve la piste "Get the Flag".
+On chercher alors dans les 8 diferentes colonnes de users, et dans les 2 dernieres, dans l'id est le 5 :
 
 "1 AND 1=2 UNION SELECT Commentaire, countersign FROM users WHERE user_id = 5"
 
+Dans la colonne countersign, on trouve "5ff9d0165b4f92b14994e5c685cdce28", comme indiquer la la colonne commentaire,
+on Decrypt le md5 en ligne, on trouve "FortyTwo", on encrypte en minuscule, en md5 ce qui donne le flag.
+
+
 SOLUTION
+
+Utiliser des requetes preparees dans son back, qui sont plus securisees.
+Ce sont des requetes qui s'effectuent en 2 temps, la requete est "prearee" avec des indices pour les variables qui vont etre ajoutees,
+puis dans un decond temps on attribue aux indices les variables recuperees lors de l'envoie du formulaire.
