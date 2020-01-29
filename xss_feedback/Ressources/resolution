@@ -1,0 +1,12 @@
+FAILLE XSS
+
+Dans la page Feedback du site, on peut modifier le type d'entree de la premiere section du formulaire,
+ainsi que sa taille pour y entrer un simple script.
+
+On peut aussi trouver le flag en entrant une lettre, dans la rubrique name.
+
+SOLUTION
+
+On filtre les entrees recues cote serveur lorsque l'on recupere la variable envoyee,
+par exemple avec htmlspecialchars() qui remplace les symboles speciaux par leur equivalent en HTML,
+et esquive ainsi les injection de script et autres.

@@ -1,0 +1,12 @@
+FAILLE
+
+Dans la page recover, accessible depuis la page signin, elle-meme accessible depuis la page home,
+on peut inspecter l'element button submit, on decouvre alors un champs de formulaire cache
+ou l'adresse a laquelle le lien serait envoyer, que l'on peut alors modifier puis submit sans probleme.
+
+SOLUTION
+
+On affiche pas, meme en element cache l'adresse mail a lqauelle on envoie le lien pour le nouveau mot de passe.
+On auras demande une adresse mail lors de la creation du compte dde l'utilisateur,
+comme ca celui ci n'auras qu'a renseigner son adresse mail, relier a ses identifiants dans la base de donnees,
+pour recevoir un lien de reinitialisation de mot de passe.
